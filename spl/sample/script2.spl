@@ -1,0 +1,25 @@
+Start session;
+Name session "mathnews prod night #1";
+
+### 2023/08/04 ###
+### 2023/09/04 ###
+
+Add pizza [
+{Cheese: None}, {Sauce: None}, {LEFT:BEEF}
+] as "none pizza with left beeef";
+Add pizza [{HotHoney}, {PESTO},  {Left: Ham}, {Right: Bacon}];
+Add pizza [];
+Add pizza [{mushrooms}] as "oops! all mushrooms";
+Alter pizza "oops! all mushrooms" add topping {portobellomushrooms};
+AltEr PIZZA "oops! all mushrooms" set cheese {cheese: doublemozzarella};
+
+View pizza;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Vote for pizza "none pizza with left beeef" (1);
+VOTE    FOR  PIZZA (2) (5);
+Vote fOr PiZzA [] (10); # here be-eth another comment #
+Vote for pizza "oops! all mushrooms" (-3);
+
+Select top (2) pizza;
+
+END SESSION;
+#End session; 

@@ -1,0 +1,51 @@
+# Contains every statement in the grammar #
+
+START SESSION;
+END SESSION;
+START SESSION AS "Grammar";
+NAME SESSION "Grammariam";
+
+SAVE SESSION TO "defaultsesh.xml";
+LOAD SESSION FROM "defaultsesh.xml";
+
+# Note that saving a session, once implemented, will not end it.
+# Also, loading a session, once implemented, will implicitly end the current one if it is active.
+
+ADD PIZZA [{Pepperoni}];
+ADD PIZZA [{Pepperoni}, {GreenPeppers}, {BlackOlives}];
+ADD PIZZA [{Pesto}, {Left: GreenOlives}, {Right: Spinach}] AS "Greenza";
+ADD PIZZA [{Cheese: TRIPLEMOZZARELLA}, {Asiago}, {Cheddar}, {Feta}, {GoatCheese}, {Parmesan}] as "Cheeza";
+REMOVE PIZZA "Greenza";
+VIEW PIZZA "Cheeza";
+VIEW PIZZA;
+VIEW PIZZA (2) DETAILS;
+VIEW PIZZA DETAILS;
+
+VOTE FOR PIZZA [{Pepperoni}];
+VOTE FOR PIZZA [{Pepperoni}, {GreenPeppers}, {BlackOlives}] (3);
+VOTE FOR PIZZA "Cheeza" (5);
+VOTE FOR PIZZA "Cheeza" (-1);
+
+ADD PIZZA [{Crust: GlutenFree}, 
+		   {Sauce: Tomato},
+		   {Cheese: DAIRYFREE},
+		   {All: SpanishONION}] AS "Senza Glutina"; # You know, like the Holst annotation "senza misura". From Lyric Movement. Please laugh.
+
+SUBVERT DEMOCRACY FOR PIZZA "Senza Glutina";
+
+ALTER PIZZA "Cheeza" ADD TOPPING {Mushrooms};
+ALTER PIZZA "Cheeza" REMOVE TOPPING {Mushrooms};
+ALTER PIZZA "Cheeza" SET CRUST {Crust: Thickcrust};
+
+ALTER PIZZA [{Pepperoni}] SET SAUCE {OliveOil};
+ALTER PIZZA (1) SET CHEESE {DoubleMozzarella};
+
+SELECT TOP (2) PIZZA;
+
+RESET SESSION VOTES; 
+VIEW PIZZA;
+RESET SESSION; 
+VIEW PIZZA;
+
+END SESSION;
+QUIT;
