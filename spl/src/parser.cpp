@@ -5,7 +5,7 @@
 using parser::Scanner;
 
 Scanner::Scanner(std::string& sourcefile)
-: loc(Location(1,1)), charptr(sourcefile.begin()), START(sourcefile.begin()), END(sourcefile.end())
+: loc{1,1}, charptr(sourcefile.begin()), START(sourcefile.begin()), END(sourcefile.end())
 { ; }
 
 Scanner::Scanner(std::string& sourcefile, std::string::iterator initpos, Location initloc)

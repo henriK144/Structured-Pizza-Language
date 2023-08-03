@@ -196,9 +196,9 @@ inline std::ostream& operator<<(std::ostream& os, const Program& p)
 	os << "Program pointers: [\n";
 	for (const auto& pp : p) {
 		if (pp) {
-			os << "#" << n << " - " << pp << " statement type = " << typeid(*pp).name() << "\n";
+			os << "#" << n << " - " << pp.get() << " statement type = " << typeid(*pp).name() << "\n";
 		} else {
-			os << "#" << n << " - " << pp << " empty statement\n";
+			os << "#" << n << " - " << pp.get() << " empty statement\n";
 		}
 		++n;
 	}

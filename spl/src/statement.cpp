@@ -214,7 +214,8 @@ int AlterPizzaRemove::execute(ProgramState& ps)
 
 		if (std::visit([&](auto&& arg) { return ps.session->located(arg); }, pspec)) {
 			Pizza& pz = std::visit([&](auto&& arg) -> Pizza& { return ps.session->locate(arg).pizza; }, pspec);
-			std::erase(pz.toppings, ta);
+			//std::erase(pz.toppings, ta); C++ 20 only
+			pz.toppings.erase(std::remove(pz.toppings.begin(), pz.toppings.end(), ta));
 			return 0;
 		} else {
 			printer::reportRuntimeError("Error: No such pizza has been ordered.", ps);

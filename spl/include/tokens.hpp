@@ -42,6 +42,11 @@ struct TokenPrototype // A string along with the type it should tokenize into
 {  
 	TokenType type;
 	TokenData data;
+
+	TokenPrototype(TokenType& tt, TokenData& dt) {
+		type = tt;
+		data = dt;
+	} // a stupid hack to fix some god-awful template instantiation error 
 };
 
 struct Token
